@@ -36,6 +36,10 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'PCWebService',
+    'PCCore',
+    'RSSCrawler',
+    'django_crontab',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -68,7 +72,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Hong_Kong'
 
 USE_I18N = True
 
@@ -85,3 +89,9 @@ STATIC_URL = '/static/'
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR,  'templates'),
 )
+
+
+# settings for CRON jobs
+CRONJOBS = [
+    ('*/1 * * * *', 'PCCore.cronjob.test')
+]
