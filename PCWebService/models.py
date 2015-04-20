@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from PCCore.models import KeyWords
+from RSSCrawler.models import RSSSourceList
 # Create your models here.
 
 
@@ -8,7 +9,7 @@ class Member(models.Model):
     user = models.OneToOneField(User)
     email = models.EmailField()
     UUID = models.CharField(max_length=255)
-    token = models.CharField(max_length=100,default="")
+    token = models.CharField(max_length=100, default="")
     last_login = models.CharField(max_length=255)
 
 
@@ -20,6 +21,8 @@ class CacheNews(models.Model):
     create_date = models.DateTimeField(auto_now_add=True)
     keywords = models.ManyToManyField(KeyWords)
     ranks = models.IntegerField(default=0)
+    static_url = models.URLField(unique=True)
+    parent_list = models.ForeignKey(RSSSourceList)
 
 
 class UserNewsMap(models.Model):
