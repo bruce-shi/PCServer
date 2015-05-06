@@ -1,8 +1,5 @@
 from django.db import models
-
 # Create your models here.
-
-
 class RSSCategory(models.Model):
     name = models.CharField(max_length=255,unique=True)
     publisher = models.CharField(max_length=255)

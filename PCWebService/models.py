@@ -8,9 +8,12 @@ from RSSCrawler.models import RSSSourceList
 class Member(models.Model):
     user = models.OneToOneField(User)
     email = models.EmailField()
-    UUID = models.CharField(max_length=255)
+    UUID = models.CharField(max_length=255,default="")
     token = models.CharField(max_length=100, default="")
-    last_login = models.CharField(max_length=255)
+    cookie_secret = models.CharField(max_length=255,default="")
+    app_key = models.CharField(max_length=255,default="")
+    last_login = models.DateTimeField(auto_now_add=True)
+    register_date = models.DateTimeField(auto_now_add=True)
 
 
 class CacheNews(models.Model):

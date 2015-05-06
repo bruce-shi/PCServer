@@ -45,7 +45,7 @@ INSTALLED_APPS = (
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -96,3 +96,6 @@ TEMPLATE_DIRS = (
 CRONJOBS = [
     ('*/1 * * * *', 'RSSCrawler.RSSCrawler.cron_job')
 ]
+
+SESSION_COOKIE_DOMAIN = "lovejupiter.me"
+CHROME_EXT_COOKIE_NAME = 'chrome_ext_cookie'
